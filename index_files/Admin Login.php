@@ -128,7 +128,7 @@ if(isset($_POST['Signin']))
         {
         $result_fetch=mysqli_fetch_assoc($result);
         $_SESSION['logged_in']=true;
-        header("location: Add Word.php");
+        header("location: ./index_files/Add Word.php");
         }
         else
         {

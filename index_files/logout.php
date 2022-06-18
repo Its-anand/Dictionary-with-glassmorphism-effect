@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-header("location: Add Word.php");
+header("location: ./index_files/Add Word.php");
 ?>

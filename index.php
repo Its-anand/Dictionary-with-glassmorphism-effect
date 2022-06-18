@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
     <title>Common English Words Project</title>
 <?php
-include 'connection.php';
+include './index_files/connection.php';
 ?>
     <style>
         body
@@ -175,7 +175,7 @@ include 'connection.php';
 </head>
 <body>
     <main>
-    <DIV id="logo_holder" ><img src='logo.png' class='logo' style='margin: 2rem 0;'></DIV>
+    <DIV id="logo_holder" ><img src='./index_files/logo.png' class='logo' style='margin: 2rem 0;'></DIV>
    <!-- <input placeholder="Search any word.." id='myInput' onkeyup="searchFun()"/>-->
     <table id='myTable'>
         
@@ -235,7 +235,7 @@ include 'connection.php';
         <h3>Do you want to  delete the word</h3>
         <div>
             <!--This form attribute will call the form with id cancel_btn-->
-            <form method="POST" action="remove_word.php" name = "del_form" id="cancel_btn">
+            <form method="POST" action="./index_files/remove_word.php" name = "del_form" id="cancel_btn">
             <input type='text' name='rmv_word_id' >
             <button form="cancel_btn" name='Del_word' type='submit'>Yes</button>
             </form>
@@ -246,7 +246,7 @@ include 'connection.php';
     <div class='warning warning2'>
         <h3>Do you want to edit the word</h3>
         <div>
-            <form method="POST" action="edit_word.php" name = "edit_form" id="edit_btn">
+            <form method="POST" action="./index_files/edit_word.php" name = "edit_form" id="edit_btn">
             <input type='text' name='edit_word_id'>
             <button form="edit_btn" name='edit_word' type='submit'>Yes</button>
             </form>
