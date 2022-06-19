@@ -129,11 +129,11 @@ if(isset($_POST['Signin']))
         {
         $result_fetch=mysqli_fetch_assoc($result);
         $_SESSION['logged_in']=true;
-        ?>
+        echo"
         <script>
-           history.go(-2);
+        window.location.href='../index.php';
         </script>
-        <?php
+        ";
         }
         else
         {

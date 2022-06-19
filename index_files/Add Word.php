@@ -149,7 +149,7 @@ if(!isset($_SESSION['logged_in']))
                 <input type="text"  name="word_meaning" placeholder="Product Price *" class="form_input" required>
                 <textarea name="description" placeholder="Description.. *" class="form_text"  required></textarea>
                 <textarea  name="example" placeholder="Example.. *" class="form_text"   required></textarea>
-                <input type="submit" value="Add Product" name="submit" id="submit_btn"  class="form_btn" >
+                <input type="submit" value="Add Word" name="submit" id="submit_btn"  class="form_btn" >
                 <input type="reset" name="reset"  id="submit_btn" class="form_btn">
                 <a class="form_btn" href="../index.php"  id="other_btn">Go Home</a><br><br>
                 <a class="form_btn" href="logout.php" id="other_btn">Log Out</a>

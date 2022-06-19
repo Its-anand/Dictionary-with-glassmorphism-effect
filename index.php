@@ -260,8 +260,8 @@ session_start();
       if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
       {
         echo"
-        <a href='./Index_files/logout.php'>
-        <button class='account_button_signin' type='button'>
+        <a href='./index_files/logout.php'>
+        <button style='cursor:pointer;' class='account_button_signin' type='button'>
           Logout
         </button>
         </a>
@@ -270,8 +270,8 @@ session_start();
       else
       {
         echo"
-        <a href='./Index_files/Admin Login.php'>
-        <button class='account_button_signin' type='button'>
+        <a href='./index_files/Admin Login.php'>
+        <button style='cursor:pointer;' class='account_button_signin' type='button'>
           Sign in
         </button>
         </a>
@@ -356,7 +356,7 @@ session_start();
       {
         echo"
         <div style='margin-top: 3.3rem;'>
-        <a style='text-decoration:none;' href='./Index_files/Admin Login.php'>
+        <a style='text-decoration:none;' href='./index_files/Admin Login.php'>
         <button class='account_button_signin' type='button'>
           Sign in
         </button>
@@ -390,7 +390,7 @@ session_start();
       {
         echo"
         <div style='margin-top: 3.3rem;'>
-        <a style='text-decoration:none;' href='./Index_files/Admin Login.php'>
+        <a style='text-decoration:none;' href='./index_files/Admin Login.php'>
         <button class='account_button_signin' type='button'>
           Sign in
         </button>

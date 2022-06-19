@@ -159,7 +159,7 @@ $result = mysqli_query($con,$query);
                 <input type='hidden'value='<?php echo $word_id ?>' name='word_id'>
                 <input type="submit" value="Update" name="update" id="submit_btn"  class="form_btn">
                 <input type="reset" name="reset" class="form_btn">
-                <a class="form_btn" href="index.php" id="other_btn">Go Back</a><br><br>
+                <a class="form_btn" href="../index.php"  id="other_btn">Go Home</a><br><br>
                 <a class="form_btn" href="logout.php" id="other_btn">Log Out</a>
                 </form>
             </div>
