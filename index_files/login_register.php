@@ -20,8 +20,11 @@ if(isset($_POST['login']))
                     $_SESSION['logged_in']=true;
                     $_SESSION['UserLoginId']=$result_fetch['full_name'];
                     $_SESSION['username'] = $result_fetch['username'];
-                    header("location: ../../../index.php");
-
+                    ?>
+                        <script>
+                           history.go(-2);
+                        </script>
+                    <?php 
                 }
             
                 else
@@ -29,7 +32,7 @@ if(isset($_POST['login']))
                     echo"
                     <script>
                         alert('Password is incorrect');
-                        window.location.href='signin.php';
+                        window.location.href='Admin Login.php';
                     </script>
                 ";
                 }
@@ -39,7 +42,7 @@ if(isset($_POST['login']))
                 echo"
                     <script>
                         alert('Please verify your email first');
-                        window.location.href='signin.php';
+                        window.location.href='Admin Login.php';
                     </script>
                 ";  
             }
@@ -50,8 +53,8 @@ if(isset($_POST['login']))
                 echo"
                 <script>
                     alert('Email not verified please verify it first');
-                    window.location.href='signin.php';
-                </script>
+                    window.location.href='Admin Login.php';
+                    </script>
             "; 
             }
     }
@@ -60,8 +63,8 @@ if(isset($_POST['login']))
         echo"
             <script>
                 alert('Email or Username not registered');
-                window.location.href='signin.php';
-            </script>
+                window.location.href='Admin Login.php';
+                </script>
         ";
     }
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Word</title>
+    <title>Update Word</title>
     <style>
         .disclaimer 
         {
@@ -74,6 +74,12 @@
         .form_btn {
             width: 100%;
             height: 30px;
+            height: 35px;
+            background-color: #25c4b5;
+            color: #fff;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
         .form_text
         {
@@ -106,15 +112,6 @@
             background-color: #25c4b587;
         }
 
-        #submit_btn {
-            height: 35px;
-            background-color: #25c4b5;
-            color: #fff;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-
-        }
 
    
         @media screen and (max-width:475px) {
@@ -154,12 +151,13 @@ $result = mysqli_query($con,$query);
         <div class="control_panel">
             <div class="form_holder">
             <h2 class='heading'>Add Word</h2>
-                <form method="post" enctype="multipart/form-data">          
+                <form action = "update.php" method="post">          
                 <input type="text" name="word" placeholder="Word *" value='<?php echo $word;?>' class="form_input" >
                 <input type="text"  name="word_meaning" placeholder="Product Price *" value='<?php echo $word_meaning;?>' class="form_input" >
                 <textarea name="description" placeholder="Description.. *" class="form_text" ><?php echo $description;?></textarea>
                 <textarea  name="example" placeholder="Example.. *" class="form_text"  ><?php echo $example;?></textarea>
-                <input type="submit" value="Add Product" name="Update" id="submit_btn"  class="form_btn">
+                <input type='hidden'value='<?php echo $word_id ?>' name='word_id'>
+                <input type="submit" value="Update" name="update" id="submit_btn"  class="form_btn">
                 <input type="reset" name="reset" class="form_btn">
                 <a class="form_btn" href="index.php" id="other_btn">Go Back</a><br><br>
                 <a class="form_btn" href="logout.php" id="other_btn">Log Out</a>
@@ -173,18 +171,15 @@ $result = mysqli_query($con,$query);
         }
     }
 }
-else
+else 
     {
         echo"
         <script>
         alert('Click the Edit button first');
-            window.location.href='index.php';
+            window.location.href='../index.php';
         </script>
         "; 
     }
-if(isset($_POST['update']))
-{
-    $update_quary = "UPDATE `products` SET `id`=[value-1],`word`=[value-2],`word_meaning`=[value-3],`description`=[value-4],`example`=[value-5] WHERE id = '$word_id'";
-}
+    
 ?>
 </html>

@@ -68,6 +68,7 @@ session_start();
         .form_btn {
             width: 100%;
             height: 30px;
+            cursor: pointer;
         }
 
         #submit_btn:hover {
@@ -110,7 +111,7 @@ session_start();
                     <input type="text" placeholder="Email or Username*" name="email_username" class="form_input" require>
                     <input type="password" placeholder="Password *" name="password" class="form_input" require>
                     <input type="submit" name="Signin" value="Submit" id="submit_btn" class="form_btn">
-                    <a class="form_btn" href="index.php" id="other_btn">Go Home</a><br><br>
+                    <a class="form_btn" onclick="history.go(-1)" id="other_btn">Go Home</a><br><br>
                 </form>
             </div>
         </div>
@@ -128,7 +129,11 @@ if(isset($_POST['Signin']))
         {
         $result_fetch=mysqli_fetch_assoc($result);
         $_SESSION['logged_in']=true;
-        header("location: ./index_files/Add Word.php");
+        ?>
+        <script>
+           history.go(-2);
+        </script>
+        <?php
         }
         else
         {

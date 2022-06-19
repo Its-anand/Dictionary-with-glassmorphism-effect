@@ -20,7 +20,7 @@ $result = mysqli_query($con,$query);
             echo"
             <script>
             alert('Word has been removed');
-            window.location.href='./index.php';
+            window.location.href='../index.php';
             </script>
             "; 
         }
@@ -29,7 +29,7 @@ $result = mysqli_query($con,$query);
             echo"
             <script>
             alert('Sorry! Word can't be deleted due to some error.);
-             window.location.href='./index.php';
+             window.location.href='../index.php';
             </script>
             ";  
         }
@@ -39,7 +39,7 @@ $result = mysqli_query($con,$query);
         echo"
         <script>
         alert('Word not found');
-            window.location.href='./index.php';
+            window.location.href='../index.php';
         </script>
         "; 
     }   
@@ -50,7 +50,7 @@ else
         echo"
         <script>
         alert('Click the delete button first');
-            window.location.href='./index.php';
+            window.location.href='../index.php';
         </script>
         "; 
     }

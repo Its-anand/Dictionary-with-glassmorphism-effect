@@ -9,6 +9,7 @@
     <title>Common English Words Project</title>
 <?php
 include './index_files/connection.php';
+session_start();
 ?>
     <style>
         body
@@ -43,6 +44,35 @@ include './index_files/connection.php';
         {
           -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
           box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        }
+        header
+        {
+            position: absolute;
+            text-align: right;
+            width:100%;
+        } 
+        header a
+        {
+            margin-right:3rem;
+            text-decoration: none;
+        }
+        header a button
+        {
+            background: transparent;
+            border: none;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            width:8rem;
+            height: 2rem;
+            color: #fff;
+            font-size:1.1rem ;
+            background: -webkit-linear-gradient(to right, #32e79b, #29c5d2);
+            background: linear-gradient(to right, #32e79b, #29c5d2);
+        }
+        header a button:active
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
         }
         #logo_holder
         {
@@ -155,6 +185,21 @@ include './index_files/connection.php';
            {
                width: 201px;
            }
+           header a 
+           {
+            margin-right: 1rem;
+           }
+           header a button 
+           {
+           border-bottom-left-radius: 7px;
+           border-bottom-right-radius: 7px;
+           width: 5rem;
+           height: 1.6rem;
+           color: #fff;
+           font-size: 1rem;
+           background: -webkit-linear-gradient(to right, #32e79b, #29c5d2);
+           background: linear-gradient(to right, #32e79b, #29c5d2);
+           }
        }
 
        @media screen and (max-width:51rem)
@@ -174,6 +219,30 @@ include './index_files/connection.php';
     </style>
 </head>
 <body>
+    <header>
+    <?php
+      if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
+      {
+        echo"
+        <a href='./Index_files/logout.php'>
+        <button class='account_button_signin' type='button'>
+          Logout
+        </button>
+        </a>
+      ";
+      }
+      else
+      {
+        echo"
+        <a href='./Index_files/Admin Login.php'>
+        <button class='account_button_signin' type='button'>
+          Sign in
+        </button>
+        </a>
+      ";
+      }
+      ?>
+    </header>
     <main>
     <DIV id="logo_holder" ><img src='./index_files/logo.png' class='logo' style='margin: 2rem 0;'></DIV>
    <!-- <input placeholder="Search any word.." id='myInput' onkeyup="searchFun()"/>-->
@@ -237,7 +306,7 @@ include './index_files/connection.php';
             <!--This form attribute will call the form with id cancel_btn-->
             <form method="POST" action="./index_files/remove_word.php" name = "del_form" id="cancel_btn">
             <input type='text' name='rmv_word_id' >
-            <button form="cancel_btn" name='Del_word' type='submit'>Yes</button>
+            <button name='Del_word' type='submit'>Yes</button>
             </form>
 
             <button class="del_no">No</button>
@@ -248,13 +317,13 @@ include './index_files/connection.php';
         <div>
             <form method="POST" action="./index_files/edit_word.php" name = "edit_form" id="edit_btn">
             <input type='text' name='edit_word_id'>
-            <button form="edit_btn" name='edit_word' type='submit'>Yes</button>
+            <button name='edit_word' type='submit'>Yes</button>
             </form>
             
             <button class="edit_no">No</button>
         </div>
     </div>
-    <a href="Add Word.php"><nav id='nav'>
+    <a href="./index_files/Add Word.php"><nav id='nav'>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" id='writing_button' viewBox="0 0 494.936 494.936" style="enable-background:new 0 0 494.936 494.936;" xml:space="preserve">
     <g>
 	    <g>

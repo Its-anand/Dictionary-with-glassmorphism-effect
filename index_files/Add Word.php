@@ -82,6 +82,9 @@ if(!isset($_SESSION['logged_in']))
         .form_btn {
             width: 100%;
             height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
         }
         .form_text
         {
@@ -148,7 +151,7 @@ if(!isset($_SESSION['logged_in']))
                 <textarea  name="example" placeholder="Example.. *" class="form_text"   required></textarea>
                 <input type="submit" value="Add Product" name="submit" id="submit_btn"  class="form_btn" >
                 <input type="reset" name="reset"  id="submit_btn" class="form_btn">
-                <a class="form_btn" href="index.php" id="other_btn">Go Back</a><br><br>
+                <button class="form_btn"  onclick="history.go(-1)" id="other_btn">Go Back</button><br><br>
                 <a class="form_btn" href="logout.php" id="other_btn">Log Out</a>
                 </form>
             </div>
