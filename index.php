@@ -66,9 +66,9 @@ session_start();
             height: 2rem;
             color: #fff;
             font-size:1.1rem ;
-            background: -webkit-linear-gradient(to right, #32e79b, #29c5d2);
-            background: linear-gradient(to right, #32e79b, #29c5d2);
-        }
+            background: -webkit-linear-gradient(to right, #21caca, #29c5d2);
+            background: linear-gradient(to right, #21caca, #29c5d2);
+            }
         header a button:active
         {
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
@@ -78,8 +78,30 @@ session_start();
         {
             text-align: center;
             width: 100%;
+            margin: 1.5rem 0 3rem 0;
         }
-        
+/*search bar css start*/
+        #myInput
+        {
+            border-radius: 20px;
+    width: 22rem;
+    background: rgba( 255, 255, 255, 0.25 );;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border: 1px solid rgb(255 255 255 / 68%);
+    height: 2.5rem;
+    box-sizing: border-box;
+    padding: 5px 5px 5px 10px;
+    color: #fff;
+    outline:none;
+    margin: 5px 0 3rem 11px;
+    font-size:1rem;
+        }
+        #myInput::placeholder
+        {
+            color:#fff;
+        }
+        /*search bar css end*/
         table
         {
             width: 50rem;
@@ -110,6 +132,18 @@ session_start();
             align-items: stretch;
             width: 100%;
         }
+        .warning_holder
+        {
+            height: 100vh;
+            width: 100%;
+            backdrop-filter: blur( 4px );
+            background: rgb(255 255 255 / 54%);
+            display: flex;
+            position: fixed;
+            overflow: hidden;
+            display:none;
+
+        }
         .warning
         {
             width: 20rem;
@@ -117,18 +151,20 @@ session_start();
             font-size: 1.1rem;
             font-family: sans-serif;
             font-weight: 600;
-            position: absolute;
             background: rgb(255 255 255 / 54%);
             backdrop-filter: blur( 4px );
             -webkit-backdrop-filter: blur( 4px );
             border: 1px solid rgb(255 255 255 / 56%);
-            top: 20%;
             text-align: center;
             color: #000;
             box-sizing: border-box;
             padding: 50px 20px 0 20px;
-            display:none;
             color: #67D3B6;
+            position: absolute;
+            top: 50%; 
+            right: 50%;
+            transform: translate(50%,-50%);
+
         }
         .warning button
         {
@@ -197,8 +233,8 @@ session_start();
            height: 1.6rem;
            color: #fff;
            font-size: 1rem;
-           background: -webkit-linear-gradient(to right, #32e79b, #29c5d2);
-           background: linear-gradient(to right, #32e79b, #29c5d2);
+           background: -webkit-linear-gradient(to right, #21caca, #29c5d2);
+           background: linear-gradient(to right, #21caca, #29c5d2);
            }
        }
 
@@ -244,8 +280,8 @@ session_start();
       ?>
     </header>
     <main>
-    <DIV id="logo_holder" ><img src='./index_files/logo.png' class='logo' style='margin: 2rem 0;'></DIV>
-   <!-- <input placeholder="Search any word.." id='myInput' onkeyup="searchFun()"/>-->
+    <DIV id="logo_holder" ><img src='./index_files/logo.png' class='logo'></DIV>
+    <!-- <input placeholder="Search any word.." id='myInput' onkeyup="searchFun()"/> -->
     <table id='myTable'>
         
         <?php
@@ -300,28 +336,72 @@ session_start();
         ?>
         <!--PHP ENDS-->
     </table>
-        <div class='warning warning1'>
-        <h3>Do you want to  delete the word</h3>
+    <div class="warning_holder warning1">
+      <div class='warning'>
+      <?php
+      if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
+      {
+        echo"
+        <h3>Do you want to <span style='color: #CC313D;'>Delete</span> the word</h3>
         <div>
-            <!--This form attribute will call the form with id cancel_btn-->
-            <form method="POST" action="./index_files/remove_word.php" name = "del_form" id="cancel_btn">
-            <input type='text' name='rmv_word_id' >
+            <form method='POST' style='display: inline;' action='./index_files/remove_word.php' name = 'del_form' id='cancel_btn'>
+            <input type='hidden' name='rmv_word_id' >
             <button name='Del_word' type='submit'>Yes</button>
             </form>
-
-            <button class="del_no">No</button>
+            <button class='del_no'>No</button>
         </div>
+        ";
+      }
+      else
+      {
+        echo"
+        <div style='margin-top: 3.3rem;'>
+        <a style='text-decoration:none;' href='./Index_files/Admin Login.php'>
+        <button class='account_button_signin' type='button'>
+          Sign in
+        </button>
+        </a>
+        <button class='del_no'>No</button>
+        </div>
+      ";
+      }
+      ?>
+      </div>
     </div>
-    <div class='warning warning2'>
-        <h3>Do you want to edit the word</h3>
+    <div class="warning_holder warning2">
+    <div class='warning'>
+            <?php
+      if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
+      {
+        echo"
+        <h3>Do you want to <span style='color: #31cc9d;'>Edit</span> the word</h3>
         <div>
-            <form method="POST" action="./index_files/edit_word.php" name = "edit_form" id="edit_btn">
-            <input type='text' name='edit_word_id'>
+            <form method='POST' style='display: inline;' action='./index_files/edit_word.php' name = 'edit_form' id='edit_btn'>
+            <input type='hidden' name='edit_word_id'>
             <button name='edit_word' type='submit'>Yes</button>
             </form>
             
-            <button class="edit_no">No</button>
+            <button class='edit_no'>No</button>
         </div>
+
+      ";
+      }
+      else
+      {
+        echo"
+        <div style='margin-top: 3.3rem;'>
+        <a style='text-decoration:none;' href='./Index_files/Admin Login.php'>
+        <button class='account_button_signin' type='button'>
+          Sign in
+        </button>
+        </a>
+        <button class='edit_no'>No</button>
+        </div>
+      ";
+      }
+      ?>
+
+    </div>
     </div>
     <a href="./index_files/Add Word.php"><nav id='nav'>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" id='writing_button' viewBox="0 0 494.936 494.936" style="enable-background:new 0 0 494.936 494.936;" xml:space="preserve">
@@ -342,6 +422,7 @@ session_start();
         let tr = myTable.getElementsByClassName('wrd');
         let trDef = myTable.getElementsByClassName('def');
         let trex = myTable.getElementsByClassName('ex');
+        let wordedit = myTable.getElementsByClassName('edit_tab');
 
         for(var i=0;i<tr.length;i++)
         {
@@ -352,19 +433,19 @@ session_start();
                 if(textvalue.toUpperCase().indexOf(filter) > -1)
                 {
                     tr[i].style.display = "";
-                    trDef[i].style.display = "";
-                    trex[i].style.display = "";
+                    wordedit[i].style.display = "";
                 }
                 else
                 {
                     tr[i].style.display = "none";
-                    trDef[i].style.display = "none";
-                    trex[i].style.display = "none";
+                    wordedit[i].style.display = "none";
                 }
             }
         }
     }
-    </script> -->
+    </script>  -->
+
+
         <script>
         //cancel tab button
                 $(document).ready(function() {

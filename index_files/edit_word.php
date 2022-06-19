@@ -95,7 +95,7 @@
             font-size: 1.03rem;
             color: #fff;
             outline:none;
-
+            resize: none;
         }
         .form_text::placeholder
         {

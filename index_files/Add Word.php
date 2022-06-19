@@ -100,7 +100,7 @@ if(!isset($_SESSION['logged_in']))
             font-size: 1.03rem;
             color: #fff;
             outline:none;
-
+            resize: none;
         }
         .form_text::placeholder
         {
@@ -151,7 +151,7 @@ if(!isset($_SESSION['logged_in']))
                 <textarea  name="example" placeholder="Example.. *" class="form_text"   required></textarea>
                 <input type="submit" value="Add Product" name="submit" id="submit_btn"  class="form_btn" >
                 <input type="reset" name="reset"  id="submit_btn" class="form_btn">
-                <button class="form_btn"  onclick="history.go(-1)" id="other_btn">Go Back</button><br><br>
+                <a class="form_btn" href="../index.php"  id="other_btn">Go Home</a><br><br>
                 <a class="form_btn" href="logout.php" id="other_btn">Log Out</a>
                 </form>
             </div>
