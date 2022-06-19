@@ -111,7 +111,7 @@ session_start();
                     <input type="text" placeholder="Username*" name="email_username" class="form_input" require>
                     <input type="password" placeholder="Password *" name="password" class="form_input" require>
                     <input type="submit" name="Signin" value="Submit" id="submit_btn" class="form_btn">
-                    <a class="form_btn" onclick="history.go(-1)" id="other_btn">Go Home</a><br><br>
+                    <a class="form_btn" href='../index.php' id="other_btn">Go Home</a><br><br>
                 </form>
             </div>
         </div>
