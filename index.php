@@ -114,6 +114,18 @@ session_start();
             box-sizing: border-box;
             text-align: right;
         }
+        #edit_panel
+        {
+            display: grid;
+            grid-template-columns: 20px 1fr;
+
+        }
+        #word_no
+        {
+            margin: 9px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
         .edit_tab td
         {
           box-sizing: border-box;
@@ -125,12 +137,10 @@ session_start();
             box-sizing: border-box;
             background: transparent;
         }
-        #edit_del_holder
+        #word_no_holder, #edit_del_holder
         {
             display: flex;
             justify-content: flex-end;
-            align-items: stretch;
-            width: 100%;
         }
         .warning_holder
         {
@@ -292,8 +302,9 @@ session_start();
         ?>
         <tr class="edit_tab">
             <td class="container" colspan="2" height="40px" >
+            <div id="edit_panel">
+            <div id="word_no_holder"><p id="word_no"><?php echo $res['id']; ?></p></div>
             <div id="edit_del_holder">
-            
             <button id='editting_btn' onclick = "edit_word('<?php echo $res['id']; ?>')" class='edit_del_btn'>    
             
             <svg xmlns="http://www.w3.org/2000/svg"  class="edit" fill="#fff" style="cursor:pointer;" version="1.0" width="17.000000pt" height="17.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -314,7 +325,7 @@ session_start();
             </svg>
             
             </button>  
-            
+            </div>
             </div>
             </td>
         </tr>      
