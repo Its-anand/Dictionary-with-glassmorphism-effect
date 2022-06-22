@@ -79,6 +79,8 @@ session_start();
             text-align: center;
             width: 100%;
             margin: 1.5rem 0 3rem 0;
+            filter: invert(1);
+            opacity: 0.9;
         }
 /*search bar css start*/
         #myInput
