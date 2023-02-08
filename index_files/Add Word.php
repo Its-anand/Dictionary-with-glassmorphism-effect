@@ -146,7 +146,7 @@ if(!isset($_SESSION['logged_in']))
             <h2 class='heading'>Add Word</h2>
                 <form method="post" action="upload.php" enctype="multipart/form-data">          
                 <input type="text" name="word" placeholder="Word *" class="form_input" required>
-                <input type="text"  name="word_meaning" placeholder="Product Price *" class="form_input" required>
+                <input type="text"  name="word_meaning" placeholder="Hindi Word *" class="form_input" required>
                 <textarea name="description" placeholder="Description.. *" class="form_text"  required></textarea>
                 <textarea  name="example" placeholder="Example.. *" class="form_text"   required></textarea>
                 <input type="submit" value="Add Word" name="submit" id="submit_btn"  class="form_btn" >
